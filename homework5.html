@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                margin: 15px;
+            }
+            h1{
+               
+                font-size: 35px;
+            }
+            
+          
+        
+        .a1{
+            width:350px;
+            height:400px;
+            margin: 10px 100px 20px;
+            border-color: darkseagreen;
+            text-align: center;
+           
+        }
+        section{
+            margin:20px 200px 20px;
+                width:90%;
+                height:100%;
+                display:flex;
+                flex-wrap: wrap;
+        }
+        .a2{
+            height:200px;
+            width:40%;
+            margin:40px 10px 20px;          
+            text-align: center;
+        }
+        
+        </style>
+        <script>
+             const one = () =>{
+                let name = document.getElementById("1").value;
+                let mail = document.getElementById("2").value;
+                let mob = document.getElementById("3").value;
+                let skill = document.getElementById("4").value;
+
+                document.getElementById("container1").innerHTML =`<tr>
+                                                                       <td>Your Name:   ${name}</td><br/><br/>
+                                                                        <td> Email ID:   ${mail}</td><br/><br/>
+                                                                         <td> Mobile No:   ${mob}</td><br/><br/>
+                                                                        </tr>` 
+               
+                document.getElementById("container2").innerText = skill;
+               }
+        </script>
+    </head>
+    <body  >
+        <h2 align="center"> Homework-5 </h2>
+        <section  class="section">
+            <fieldset class="a1">
+                <legend align="left"><b>Enter Your Data </b></legend>
+                <table cellpadding="10" cellspacing="10" >
+                    <thead>
+                    <tr>
+                        <th>Name :</th>
+                        <th><input type="text" id="1" style="width:120%;"/></th>
+                    </tr>
+                    <tr>
+                        <th>E-Mail :</th>
+                        <th><input type="email" id="2" style="width:120%;"/></th>
+                    </tr>
+                    <tr>
+                        <th>Mobile :</th>
+                        <th><input type="number" id="3"style="width:120%;"/></th>
+                    </tr>
+                    <tr>
+                        <th>Skills :</th>
+                        <th><textarea cols="20" rows="5" id="4"style="width:120%;"></textarea></th>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <button onclick="one()">Process</button>
+                        </th>
+                    </tr>
+                    </thead>
+                </table>
+            </fieldset>
+            
+            <divt class="a2">
+                <fieldset style="height:150px;width:300px;">
+                    <legend align="left" style="text-align: left;"> <b>Personal Details</b> </legend>
+                    
+                        <p id="container1" style="text-align: left;"></p>
+                    
+                </fieldset>
+
+            <fieldset style="height: 150px;width:300px;">
+                <legend align="left" style="text-align: justify;"> <b> My Skills</b> </legend>
+                
+                    <p id="container2">
+                        
+                    </p>
+                </table>
+            </fieldset> 
+            </section>
+        </div>
+            </tbody>
+        </table>
+        
+    </body>
+</html>

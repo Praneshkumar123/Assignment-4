@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div{
+                border: 1px solid black;
+                margin: 40px 500px 0px;
+                height: 400px;
+
+            }
+            header {
+                padding:20px;
+                text-align: center;
+            }
+            section{
+                width: 100%;
+            }
+            p{
+                width:20%;
+                font-size: 20px;
+                margin-left: 30%;
+                text-align: justify;
+            }
+            
+        </style>
+        <script>
+
+            let allbook = [];
+            const items=()=>{                
+                let data = `<h1></h1>` ;
+                for(let i=0; i<allbook.length ; i++){ 
+                    data=data + `<p> ${allbook[i]}-${allbook[i].length} </p>`;
+                }               
+                document.getElementById("container").innerHTML = data;
+            }
+            
+            const save=()=>{
+                let bookname = document.getElementById("newbook").value;
+                allbook.push(bookname);
+                items();  
+            }
+            
+           
+        </script>
+    </head>
+    <body align="center">
+        <div >
+        <br/>
+            <h2 align="center"> Homework 3</h2>
+            <input type="text" id="newbook"/>
+            <button onclick="save()">Save</button>
+        <br/>
+
+        <section id="container"></section>
+    </div>
+    </body>
+</html>

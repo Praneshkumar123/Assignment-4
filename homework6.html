@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="dist/css/bootstrap.css">
+        <style>
+            body{
+                margin: 20px 10% 20px;
+            }
+            p{
+                color: blue;
+                font-size: 30px;
+            }
+            #card{
+                width: 300px;
+            }
+            th{
+                color: red;
+                background-color: whitesmoke;
+            }
+        </style>
+        <script>
+            let userlist=[ ];
+
+            const getUser = () =>{
+                let data = "";
+                userlist.map((user, index)=>{
+                    data = data + `<tr>
+                                        <td> ${index} </td>
+                                        <td> ${user.transport} </td>
+                                        <td> ${user.root} </td>
+                                        <td> ${user.size} </td>
+                                        <td> ${user.driver} </td>
+                                        <td> ${user.mobile} </td>
+                                        <td> <button onclick=deleteUser(${index})> Delete </button> </td>
+                                        
+                                   </tr>`;
+                })
+            document.getElementById("container").innerHTML = data;
+            document.getElementById("transport").value="";
+            document.getElementById("root").value="";
+            document.getElementById("size").value="";
+            document.getElementById("driver").value="";
+            document.getElementById("mobile").value="";
+            }
+
+            const deleteUser = (index) =>{
+                userlist.splice(index, 1);
+                getUser();
+            }
+
+            const save = () =>{
+                let transport = document.getElementById("transport").value;
+                let root = document.getElementById("root").value;
+                let size = document.getElementById("size").value;
+                let driver = document.getElementById("driver").value;
+                let mobile = document.getElementById("mobile").value;
+
+                if(transport.value !=""){
+                let newuser = {transport, root, size, driver, mobile};
+
+               
+                userlist = userlist.concat(newuser);
+                
+
+                getUser(); 
+                transport.value="";
+                root.value="";
+                size.value="";
+                driver.value="";
+                mobile.value="";
+                }else{
+                    alert("Invalid Name");
+                }
+            }
+        </script>
+    </head>
+    <body onload="getUser()">
+        <div class="row mt-5">
+            <div class="col-xl-3">
+                <div class="card" id="card">
+                 <div id="card-head" class="card-header text-danger"> New Transport </div>
+                 <div class="card-body">
+                    <div> Transport Number
+                    <input type="text" class="form-control" id="transport"/>
+                    </div>
+                    <div> Root Name 
+                    <input type="text" class="form-control" id="root"/>
+                    </div>
+    
+                    <div> Size 
+                    <input  class="form-select" id="size"/> 
+                    </div>
+    
+                    <div> Driver Name
+                    <input type="text" class="form-control" id="driver"/>
+                    </div>
+    
+                    <div> Drive Mobile No
+                    <input type="number" class="form-control" id="mobile"/>
+                    </div >
+                    <div class="mt-3">
+                    <button  class="bg-primary text-white form-control" onclick="save()"> Save </button></div>
+                 </div>
+            </div>
+        </div>
+        <div class="col-xl-9">
+            <table align="right"  class="table-bordered col-xl-11 " cellpadding="10">
+                <thead>
+                <tr>
+                    <th>T-Id</th>
+                    <th> T-Number</th>
+                    <th> Type </th>
+                    <th> Transport root </th>
+                    <th> Driver </th>
+                    <th> Mobile No</th>
+                    <th> Action</th>
+                </tr> 
+            </thead>
+                <tbody id="container">
+    
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </body>
+</html>
